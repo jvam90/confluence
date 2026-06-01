@@ -122,7 +122,7 @@ public sealed class ArtigoTests
     public void Igualdade_DeveCompararPorIdentidade()
     {
         // Arrange
-        var id = ArticuloId.Criar();
+        var id = ArtigoId.Criar();
         var artigo1 = Artigo.ReconstruirDoRepositorio(
             id, "Título 1", _conteudoValido, _categoriaValida, false,
             DateTime.UtcNow, DateTime.UtcNow);

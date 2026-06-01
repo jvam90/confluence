@@ -28,7 +28,7 @@ public interface ICompartilhamentoRepository
     /// <summary>
     /// Obtém compartilhamentos de um artigo específico.
     /// </summary>
-    Task<IEnumerable<Compartilhamento>> ObterPorArtigoAsync(ArticuloId idArtigo);
+    Task<IEnumerable<Compartilhamento>> ObterPorArtigoAsync(ArtigoId idArtigo);
 
     /// <summary>
     /// Persiste um novo compartilhamento ou atualiza um existente.

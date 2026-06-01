@@ -26,7 +26,7 @@ public interface IServicoCompartilhamento
     Task<Compartilhamento> CompartilharArtigoAsync(
         UsuarioId idProprietario,
         AggregateId idBase,
-        ArticuloId idArtigo,
+        ArtigoId idArtigo,
         UsuarioId idColaborador,
         PermissaoAcesso nivelAcesso);
 
@@ -80,5 +80,5 @@ public interface IServicoCompartilhamento
     /// Remove todo compartilhamento de uma base.
     /// Usado quando uma base é deletada.
     /// </summary>
-    Task RemoverCompartilhamensBasePorDeletacaoAsync(AggregateId idBase);
+    Task RemoverCompartilhamentosBasePorDeletacaoAsync(AggregateId idBase);
 }

@@ -195,7 +195,7 @@ public sealed class BaseConhecimentoTests
     {
         // Arrange
         var base_ = BaseConhecimento.Criar(_usuarioId, "Minha Base", "Uma descrição completa e válida para testes");
-        var idInexistente = ArticuloId.Criar();
+        var idInexistente = ArtigoId.Criar();
 
         // Act & Assert
         Assert.Throws<InvalidOperationException>(() => base_.RemoverArtigo(idInexistente))

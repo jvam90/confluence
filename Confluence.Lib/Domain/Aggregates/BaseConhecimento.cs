@@ -150,7 +150,7 @@ public sealed class BaseConhecimento
     /// <summary>
     /// Remove um artigo da base pelo seu ID.
     /// </summary>
-    public void RemoverArtigo(ArticuloId idArtigo)
+    public void RemoverArtigo(ArtigoId idArtigo)
     {
         ArgumentNullException.ThrowIfNull(idArtigo);
 
@@ -165,7 +165,7 @@ public sealed class BaseConhecimento
     /// <summary>
     /// Obtém um artigo pelo seu ID.
     /// </summary>
-    public Artigo? ObterArtigo(ArticuloId idArtigo)
+    public Artigo? ObterArtigo(ArtigoId idArtigo)
     {
         ArgumentNullException.ThrowIfNull(idArtigo);
         return _artigos.FirstOrDefault(a => a.Id == idArtigo);

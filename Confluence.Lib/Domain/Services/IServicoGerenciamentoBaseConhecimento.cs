@@ -37,7 +37,7 @@ public interface IServicoGerenciamentoBaseConhecimento
     /// </summary>
     Task AtualizarArtigoAsync(
         AggregateId idBase,
-        ArticuloId idArtigo,
+        ArtigoId idArtigo,
         string? novoTitulo = null,
         ConteudoArtigo? novoConteudo = null,
         Categoria? novaCategoria = null);
@@ -45,7 +45,7 @@ public interface IServicoGerenciamentoBaseConhecimento
     /// <summary>
     /// Remove um artigo de uma base.
     /// </summary>
-    Task RemoverArtigoAsync(AggregateId idBase, ArticuloId idArtigo);
+    Task RemoverArtigoAsync(AggregateId idBase, ArtigoId idArtigo);
 
     /// <summary>
     /// Publica uma base de conhecimento (torna pública).

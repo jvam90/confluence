@@ -12,7 +12,7 @@ public sealed class FabricaCompartilhamento : IFabricaCompartilhamento
     public Compartilhamento CriarCompartilhamento(
         AggregateId idBaseConhecimento,
         IEnumerable<Colaborador> colaboradores,
-        ArticuloId? idArtigoCompartilhado = null)
+        ArtigoId? idArtigoCompartilhado = null)
     {
         ArgumentNullException.ThrowIfNull(idBaseConhecimento);
         ArgumentNullException.ThrowIfNull(colaboradores);
@@ -29,7 +29,7 @@ public sealed class FabricaCompartilhamento : IFabricaCompartilhamento
         AggregateId idBaseConhecimento,
         UsuarioId idColaborador,
         PermissaoAcesso nivelAcesso,
-        ArticuloId? idArtigoCompartilhado = null)
+        ArtigoId? idArtigoCompartilhado = null)
     {
         ArgumentNullException.ThrowIfNull(idBaseConhecimento);
         ArgumentNullException.ThrowIfNull(idColaborador);

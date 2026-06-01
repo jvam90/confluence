@@ -17,7 +17,7 @@ public interface IFabricaCompartilhamento
     Compartilhamento CriarCompartilhamento(
         AggregateId idBaseConhecimento,
         IEnumerable<Colaborador> colaboradores,
-        ArticuloId? idArtigoCompartilhado = null);
+        ArtigoId? idArtigoCompartilhado = null);
 
     /// <summary>
     /// Cria um compartilhamento simples com um único colaborador.
@@ -26,7 +26,7 @@ public interface IFabricaCompartilhamento
         AggregateId idBaseConhecimento,
         UsuarioId idColaborador,
         PermissaoAcesso nivelAcesso,
-        ArticuloId? idArtigoCompartilhado = null);
+        ArtigoId? idArtigoCompartilhado = null);
 
     /// <summary>
     /// Valida os dados do compartilhamento.

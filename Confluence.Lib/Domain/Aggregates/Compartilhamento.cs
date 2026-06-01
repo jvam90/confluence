@@ -14,9 +14,9 @@ public sealed class Compartilhamento
 
     public AggregateId Id { get; }
     public AggregateId IdBaseConhecimento { get; }
-    public ArticuloId? IdArtigoCompartilhado { get; }
+    public ArtigoId? IdArtigoCompartilhado { get; }
     public IReadOnlyList<Colaborador> Colaboradores => _colaboradores.AsReadOnly();
-    public DateTime DataCompartilhamento { get; }
+    public DateTime DataCompartilhamento { get; private set; }
 
     public DateTime DataAtualizacao
     {
@@ -27,7 +27,7 @@ public sealed class Compartilhamento
     private Compartilhamento(
         AggregateId id,
         AggregateId idBaseConhecimento,
-        ArticuloId? idArtigoCompartilhado,
+        ArtigoId? idArtigoCompartilhado,
         IEnumerable<Colaborador> colaboradores)
     {
         ArgumentNullException.ThrowIfNull(id);
@@ -56,7 +56,7 @@ public sealed class Compartilhamento
     public static Compartilhamento Criar(
         AggregateId idBaseConhecimento,
         IEnumerable<Colaborador> colaboradores,
-        ArticuloId? idArtigoCompartilhado = null)
+        ArtigoId? idArtigoCompartilhado = null)
     {
         return new Compartilhamento(
             AggregateId.Criar(),
@@ -71,7 +71,7 @@ public sealed class Compartilhamento
     public static Compartilhamento ReconstruirDoRepositorio(
         AggregateId id,
         AggregateId idBaseConhecimento,
-        ArticuloId? idArtigoCompartilhado,
+        ArtigoId? idArtigoCompartilhado,
         IEnumerable<Colaborador> colaboradores,
         DateTime dataCompartilhamento,
         DateTime dataAtualizacao)
@@ -84,12 +84,9 @@ public sealed class Compartilhamento
             idArtigoCompartilhado,
             colaboradores)
         {
+            DataCompartilhamento = dataCompartilhamento,
             DataAtualizacao = dataAtualizacao
         };
-
-        // Usar reflexão para atribuir DataCompartilhamento (readonly)
-        var propriedade = typeof(Compartilhamento).GetProperty(nameof(DataCompartilhamento));
-        propriedade?.SetValue(compartilhamento, dataCompartilhamento);
 
         return compartilhamento;
     }

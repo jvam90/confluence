@@ -4,7 +4,7 @@ using ValueObjects;
 
 /// <summary>
 /// Entity que representa um artigo dentro de uma Base de Conhecimento.
-/// Possui identidade única (ArticuloId) e pode ser modificada.
+/// Possui identidade única (ArtigoId) e pode ser modificada.
 /// Faz parte do agregado BaseConhecimento.
 /// </summary>
 public sealed class Artigo
@@ -14,7 +14,7 @@ public sealed class Artigo
     private bool _isPublico;
     private DateTime _dataAtualizacao;
 
-    public ArticuloId Id { get; }
+    public ArtigoId Id { get; }
     public string Titulo
     {
         get => _titulo;
@@ -53,7 +53,7 @@ public sealed class Artigo
     }
 
     private Artigo(
-        ArticuloId id,
+        ArtigoId id,
         string titulo,
         ConteudoArtigo conteudo,
         Categoria categoria,
@@ -83,7 +83,7 @@ public sealed class Artigo
         bool isPublico = false)
     {
         return new Artigo(
-            ArticuloId.Criar(),
+            ArtigoId.Criar(),
             titulo,
             conteudo,
             categoria,
@@ -94,7 +94,7 @@ public sealed class Artigo
     /// Factory method para recriar um artigo existente (para persistência).
     /// </summary>
     public static Artigo ReconstruirDoRepositorio(
-        ArticuloId id,
+        ArtigoId id,
         string titulo,
         ConteudoArtigo conteudo,
         Categoria categoria,
